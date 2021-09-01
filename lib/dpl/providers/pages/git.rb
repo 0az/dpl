@@ -155,9 +155,8 @@ module Dpl
         end
 
         def git_push
-          conf = open('~/.dpl/git-ssh').read
           puts ENV['GIT_SSH']
-          puts conf
+          puts File.open(File.expand_path('~/.ssh/config')).read
           shell :git_push
         end
 
