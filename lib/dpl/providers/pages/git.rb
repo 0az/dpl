@@ -155,6 +155,11 @@ module Dpl
         end
 
         def git_push
+          shell 'ls -l ~/.dpl'
+          puts ENV['GIT_SSH']
+          puts File.open(ENV['GIT_SSH']).read
+          # puts File.open(File.expand_path('~/.ssh/config')).read
+          shell 'ssh-keygen -lv -f /home/travis/.dpl/deploy_key'
           shell :git_push
         end
 
