@@ -155,10 +155,10 @@ module Dpl
         end
 
         def git_push
-          shell :git_push
           _, conf = '~/.dpl/git-ssh', asset(:dpl, :git_ssh).read % expand(key)
           puts ENV['GIT_SSH']
           puts conf
+          shell :git_push
         end
 
         def git_status
