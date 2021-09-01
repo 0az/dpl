@@ -120,7 +120,6 @@ module Dpl
           chmod 0600, path
           setup_git_ssh path
           shell :check_deploy_key, key: path, url: opts[:url]
-          shell 'ls ~/.dpl'
         end
 
         def git_clone?
@@ -156,6 +155,7 @@ module Dpl
         end
 
         def git_push
+          shell 'ls -l ~/.dpl'
           puts ENV['GIT_SSH']
           puts File.open(ENV['GIT_SSH']).read
           # puts File.open(File.expand_path('~/.ssh/config')).read
