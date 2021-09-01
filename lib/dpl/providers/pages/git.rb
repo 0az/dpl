@@ -120,6 +120,7 @@ module Dpl
           chmod 0600, path
           setup_git_ssh path
           shell :check_deploy_key, key: path, url: opts[:url]
+          shell 'ls ~/.dpl'
         end
 
         def git_clone?
